@@ -54,7 +54,19 @@ public class UI {
 		for (int i = 0; i < pecas.length; i++) {
 			System.out.print((8 - i) + " ");
 			for (int j = 0; j < pecas.length; j++) {
-				printPeca(pecas[i][j]);
+				printPeca(pecas[i][j], false);
+			}
+			System.out.println();
+		}
+
+		System.out.println("  a b c d e f g h");
+	}
+	
+	public static void printTabuleiro(PecaXadrez[][] pecas, boolean[][] movimentosPossiveis) {
+		for (int i = 0; i < pecas.length; i++) {
+			System.out.print((8 - i) + " ");
+			for (int j = 0; j < pecas.length; j++) {
+				printPeca(pecas[i][j], movimentosPossiveis[i][j]);
 			}
 			System.out.println();
 		}
@@ -62,26 +74,34 @@ public class UI {
 		System.out.println("  a b c d e f g h");
 	}
 
-	private static void printPeca(PecaXadrez peca) {
-//		if (peca == null) {
-//            System.out.print("-");
-//        } else {
-//            if (peca.getCor() == Cor.BRANCO) {
-//                System.out.print(ANSI_WHITE + peca + ANSI_RESET);
-//            } else {
-//                System.out.print(ANSI_YELLOW + peca + ANSI_RESET);
-//            }
-//        }
+	private static void printPeca(PecaXadrez peca, boolean background) {
+		if (background) {
+        	System.out.print(ANSI_BLUE_BACKGROUND);
+        }
+		
+		if (peca == null) {
+            System.out.print("-" + ANSI_RESET);
+        } else {
+            if (peca.getCor() == Cor.BRANCO) {
+                System.out.print(ANSI_WHITE + peca + ANSI_RESET);
+            } else {
+                System.out.print(ANSI_YELLOW + peca + ANSI_RESET);
+            }
+        }
 		
         System.out.print(" ");
 		
-		if (peca == null) {
-			System.out.print("-");
-		} else {
-			System.out.print(peca);
-		}
-
-		System.out.print(" ");
+//        if (background) {
+//        	System.out.print("x");
+//        }
+//        
+//		if (peca == null) {
+//			System.out.print("-");
+//		} else {
+//			System.out.print(peca);
+//		}
+//
+//		System.out.print(" ");
 	}
 
 }
