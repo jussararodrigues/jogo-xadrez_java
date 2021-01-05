@@ -7,7 +7,12 @@ import xadrez.PecaXadrez;
 import xadrez.PosicaoXadrez;
 
 public class UI {
-
+	
+	public static void limpaTela() {
+		System.out.println("\033[H\033[2J");
+		System.out.flush();
+	}
+	
 	public static PosicaoXadrez lerPosicaoXadrez(Scanner sc) {
 		try {
 			String posicao = sc.nextLine();
@@ -18,7 +23,7 @@ public class UI {
 			return new PosicaoXadrez(coluna, linha);
 		}
 		catch (RuntimeException e) {
-			throw new InputMismatchException("Erro ao ler a posição de xadres. Valores válidos são de a1 até h8.");
+			throw new InputMismatchException("Erro ao ler a posição de xadrez. Valores válidos são de a1 até h8.");
 		}
 	}
 
