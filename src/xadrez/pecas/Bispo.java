@@ -5,9 +5,9 @@ import tabuleiro.Tabuleiro;
 import xadrez.Cor;
 import xadrez.PecaXadrez;
 
-public class Torre extends PecaXadrez {
+public class Bispo extends PecaXadrez {
 
-	public Torre(Tabuleiro tabuleiro, Cor cor) {
+	public Bispo(Tabuleiro tabuleiro, Cor cor) {
 		super(tabuleiro, cor);
 	}
 
@@ -17,41 +17,41 @@ public class Torre extends PecaXadrez {
 
 		Posicao auxiliar = new Posicao(0, 0);
 
-		// Acima
-		auxiliar.setValores(posicao.getLinha() - 1, posicao.getColuna());
+		// Diagonal Esquerda Acima (Noroeste)
+		auxiliar.setValores(posicao.getLinha() - 1, posicao.getColuna() - 1);
 		while (getTabuleiro().existePosicao(auxiliar) && !getTabuleiro().existePeca(auxiliar)) {
 			matriz[auxiliar.getLinha()][auxiliar.getColuna()] = true;
-			auxiliar.setLinha(auxiliar.getLinha() - 1);
+			auxiliar.setValores(auxiliar.getLinha() - 1, auxiliar.getColuna() - 1);
 		}
 		if (getTabuleiro().existePosicao(auxiliar) && existePecaAdversaria(auxiliar)) {
 			matriz[auxiliar.getLinha()][auxiliar.getColuna()] = true;
 		}
 
-		// Esquerda
-		auxiliar.setValores(posicao.getLinha(), posicao.getColuna() - 1);
+		// Diagonal Direita Acima (Nordeste)
+		auxiliar.setValores(posicao.getLinha() - 1, posicao.getColuna() + 1);
 		while (getTabuleiro().existePosicao(auxiliar) && !getTabuleiro().existePeca(auxiliar)) {
 			matriz[auxiliar.getLinha()][auxiliar.getColuna()] = true;
-			auxiliar.setColuna(auxiliar.getColuna() - 1);
+			auxiliar.setValores(auxiliar.getLinha() - 1, auxiliar.getColuna() + 1);
 		}
 		if (getTabuleiro().existePosicao(auxiliar) && existePecaAdversaria(auxiliar)) {
 			matriz[auxiliar.getLinha()][auxiliar.getColuna()] = true;
 		}
 
-		// Direta
-		auxiliar.setValores(posicao.getLinha(), posicao.getColuna() + 1);
+		// Diagonal Direita Abaixo (Sudeste)
+		auxiliar.setValores(posicao.getLinha() + 1, posicao.getColuna() + 1);
 		while (getTabuleiro().existePosicao(auxiliar) && !getTabuleiro().existePeca(auxiliar)) {
 			matriz[auxiliar.getLinha()][auxiliar.getColuna()] = true;
-			auxiliar.setColuna(auxiliar.getColuna() + 1);
+			auxiliar.setValores(auxiliar.getLinha() + 1, auxiliar.getColuna() + 1);
 		}
 		if (getTabuleiro().existePosicao(auxiliar) && existePecaAdversaria(auxiliar)) {
 			matriz[auxiliar.getLinha()][auxiliar.getColuna()] = true;
 		}
 
-		// Abaixo
-		auxiliar.setValores(posicao.getLinha() + 1, posicao.getColuna());
+		// Diagonal Esquerda Abaixo (Sudoeste)
+		auxiliar.setValores(posicao.getLinha() + 1, posicao.getColuna() - 1);
 		while (getTabuleiro().existePosicao(auxiliar) && !getTabuleiro().existePeca(auxiliar)) {
 			matriz[auxiliar.getLinha()][auxiliar.getColuna()] = true;
-			auxiliar.setLinha(auxiliar.getLinha() + 1);
+			auxiliar.setValores(auxiliar.getLinha() + 1, auxiliar.getColuna() - 1);
 		}
 		if (getTabuleiro().existePosicao(auxiliar) && existePecaAdversaria(auxiliar)) {
 			matriz[auxiliar.getLinha()][auxiliar.getColuna()] = true;
@@ -62,7 +62,7 @@ public class Torre extends PecaXadrez {
 	
 	@Override
 	public String toString() {
-		return "T";
+		return "B";
 	}
 
 }
