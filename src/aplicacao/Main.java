@@ -18,7 +18,7 @@ public class Main {
 		while (true) {
 			try {
 //				UI.limpaTela();
-				UI.printTabuleiro(partidaXadrez.getPecas());
+				UI.printPartida(partidaXadrez);
 				System.out.println();
 
 				System.out.print("Origem: ");
@@ -34,10 +34,12 @@ public class Main {
 			}
 			catch (XadrezException e) {
 				System.out.println(e.getMessage());
+				System.out.println("Pressione Enter para continuar");
 				sc.nextLine();
 			}
 			catch (InputMismatchException e) {
 				System.out.println(e.getMessage());
+				System.out.println("Pressione Enter para continuar");
 				sc.nextLine();
 			}
 		}

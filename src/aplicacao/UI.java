@@ -4,13 +4,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import xadrez.Cor;
+import xadrez.PartidaXadrez;
 import xadrez.PecaXadrez;
 import xadrez.PosicaoXadrez;
 
 public class UI {
 
 	// https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
-
 	public static final String ANSI_RESET = "\u001B[0m";
 	public static final String ANSI_BLACK = "\u001B[30m";
 	public static final String ANSI_RED = "\u001B[31m";
@@ -48,6 +48,13 @@ public class UI {
 		catch (RuntimeException e) {
 			throw new InputMismatchException("Erro ao ler a posição de xadrez. Valores válidos são de a1 até h8.");
 		}
+	}
+	
+	public static void printPartida(PartidaXadrez partidaXadrez) {
+		printTabuleiro(partidaXadrez.getPecas());
+		System.out.println();
+		System.out.println("Turno: " + partidaXadrez.getTurno());
+		System.out.println("Aguardando jogador: " + partidaXadrez.getJogadorAtual());
 	}
 
 	public static void printTabuleiro(PecaXadrez[][] pecas) {
