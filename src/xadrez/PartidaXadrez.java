@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import tabuleiro.Peca;
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
+import xadrez.pecas.Peao;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
 
@@ -205,12 +206,30 @@ public class PartidaXadrez {
 	}
 	
 	private void iniciaPartida() {
-		localNovaPeca('h', 7, new Torre(tabuleiro, Cor.BRANCO));
-        localNovaPeca('d', 1, new Torre(tabuleiro, Cor.BRANCO));
+		localNovaPeca('a', 1, new Torre(tabuleiro, Cor.BRANCO));
         localNovaPeca('e', 1, new Rei(tabuleiro, Cor.BRANCO));
-
-        localNovaPeca('b', 8, new Torre(tabuleiro, Cor.PRETO));
-        localNovaPeca('a', 8, new Rei(tabuleiro, Cor.PRETO));
+        localNovaPeca('h', 1, new Torre(tabuleiro, Cor.BRANCO));
+        localNovaPeca('a', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localNovaPeca('b', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localNovaPeca('c', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localNovaPeca('d', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localNovaPeca('e', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localNovaPeca('f', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localNovaPeca('g', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localNovaPeca('h', 2, new Peao(tabuleiro, Cor.BRANCO));
+        
+        localNovaPeca('a', 8, new Torre(tabuleiro, Cor.PRETO));
+        localNovaPeca('e', 8, new Rei(tabuleiro, Cor.PRETO));
+        localNovaPeca('h', 8, new Torre(tabuleiro, Cor.PRETO));
+        localNovaPeca('a', 7, new Peao(tabuleiro, Cor.PRETO));
+        localNovaPeca('b', 7, new Peao(tabuleiro, Cor.PRETO));
+        localNovaPeca('c', 7, new Peao(tabuleiro, Cor.PRETO));
+        localNovaPeca('d', 7, new Peao(tabuleiro, Cor.PRETO));
+        localNovaPeca('e', 7, new Peao(tabuleiro, Cor.PRETO));
+        localNovaPeca('f', 7, new Peao(tabuleiro, Cor.PRETO));
+        localNovaPeca('g', 7, new Peao(tabuleiro, Cor.PRETO));
+        localNovaPeca('h', 7, new Peao(tabuleiro, Cor.PRETO));
+	
 	}
 	
 }
