@@ -14,7 +14,7 @@ public class PartidaXadrez {
 	private int turno;
 	private Cor jogadorAtual;
 	private Tabuleiro tabuleiro;
-	private boolean check;
+	private boolean xeque;
 	
 	private List<Peca> pecasNoTabuleiro = new ArrayList<>();
 	private List<Peca> pecasCapturadas = new ArrayList<>();
@@ -23,7 +23,7 @@ public class PartidaXadrez {
 		this.tabuleiro = new Tabuleiro(8, 8);
 		this.turno = 1;
 		this.jogadorAtual = Cor.BRANCO;
-		this.check = false;
+		this.xeque = false;
 		iniciaPartida();
 	}
 	
@@ -35,8 +35,8 @@ public class PartidaXadrez {
 		return this.jogadorAtual;
 	}
 	
-	public boolean getCheck() {
-		return this.check;
+	public boolean getXeque() {
+		return this.xeque;
 	}
 	
 	public PecaXadrez[][] getPecas() {
@@ -66,12 +66,12 @@ public class PartidaXadrez {
 		validaPosicaoDestino(origem, destino);
 		Peca pecaCapturada = realizaMovimento(origem, destino);
 		
-		if (testeCheck(jogadorAtual)) {
+		if (testeXeque(jogadorAtual)) {
 			desfazMovimento(origem, destino, pecaCapturada);
-			throw new XadrezException("Você não pode se colocar em check");
+			throw new XadrezException("Você não pode se colocar em xeque");
 		}
 		
-		check = (testeCheck(adversario(jogadorAtual))) ? true : false;
+		xeque = (testeXeque(adversario(jogadorAtual))) ? true : false;
 
 		proximoTurno();
 		
@@ -144,7 +144,7 @@ public class PartidaXadrez {
 		throw new IllegalStateException("Não existe o rei " + cor + " no tabuleiro");
 	}
 	
-	private boolean testeCheck(Cor cor) {
+	private boolean testeXeque(Cor cor) {
 		Posicao posicaoRei = rei(cor).getPosicaoXadrez().paraPosicao();
 		List<Peca> pecasAdversario = pecasNoTabuleiro.stream().filter(x -> ((PecaXadrez) x).getCor() == adversario(cor)).collect(Collectors.toList());
 		
