@@ -21,6 +21,7 @@ public class Main {
 		while (true) {
 			try {
 //				UI.limpaTela();
+				System.out.println();
 				UI.printPartida(partidaXadrez, pecasCapturadas);
 				System.out.println();
 
@@ -30,7 +31,7 @@ public class Main {
 				boolean[][] movimentosPossiveis = partidaXadrez.movimentosPossiveis(origem);
 				UI.printTabuleiro(partidaXadrez.getPecas(), movimentosPossiveis);
 				
-				System.out.print("Destino: ");
+				System.out.print("\nDestino: ");
 				PosicaoXadrez destino = UI.lerPosicaoXadrez(sc);
 
 				PecaXadrez pecaCapturada = partidaXadrez.executaMovimentoPeca(origem, destino);
