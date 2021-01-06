@@ -8,6 +8,7 @@ import tabuleiro.Peca;
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
 import xadrez.pecas.Bispo;
+import xadrez.pecas.Cavalo;
 import xadrez.pecas.Peao;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
@@ -208,9 +209,11 @@ public class PartidaXadrez {
 	
 	private void iniciaPartida() {
 		localNovaPeca('a', 1, new Torre(tabuleiro, Cor.BRANCO));
+		localNovaPeca('b', 1, new Cavalo(tabuleiro, Cor.BRANCO));
 		localNovaPeca('c', 1, new Bispo(tabuleiro, Cor.BRANCO));
 		localNovaPeca('e', 1, new Rei(tabuleiro, Cor.BRANCO));
 		localNovaPeca('f', 1, new Bispo(tabuleiro, Cor.BRANCO));
+		localNovaPeca('g', 1, new Cavalo(tabuleiro, Cor.BRANCO));
 		localNovaPeca('h', 1, new Torre(tabuleiro, Cor.BRANCO));
         localNovaPeca('a', 2, new Peao(tabuleiro, Cor.BRANCO));
         localNovaPeca('b', 2, new Peao(tabuleiro, Cor.BRANCO));
@@ -222,9 +225,11 @@ public class PartidaXadrez {
         localNovaPeca('h', 2, new Peao(tabuleiro, Cor.BRANCO));
         
         localNovaPeca('a', 8, new Torre(tabuleiro, Cor.PRETO));
+		localNovaPeca('b', 8, new Cavalo(tabuleiro, Cor.PRETO));
         localNovaPeca('c', 8, new Bispo(tabuleiro, Cor.PRETO));
         localNovaPeca('e', 8, new Rei(tabuleiro, Cor.PRETO));
         localNovaPeca('f', 8, new Bispo(tabuleiro, Cor.PRETO));
+		localNovaPeca('g', 8, new Cavalo(tabuleiro, Cor.PRETO));
         localNovaPeca('h', 8, new Torre(tabuleiro, Cor.PRETO));
         localNovaPeca('a', 7, new Peao(tabuleiro, Cor.PRETO));
         localNovaPeca('b', 7, new Peao(tabuleiro, Cor.PRETO));
