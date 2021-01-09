@@ -1,6 +1,5 @@
 package xadrez;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -125,7 +124,7 @@ public class PartidaXadrez {
 		}
 		
 		if (!tipo.equals("B") && !tipo.equals("C") && !tipo.equals("T") && !tipo.equals("Q")) {
-			throw new InvalidParameterException("Tipo inválido para promoção");
+			return promovida;
 		}
 		
 		Posicao posicaoPromovida = promovida.getPosicaoXadrez().paraPosicao();
